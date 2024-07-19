@@ -1,0 +1,20 @@
+{% extends 'artista/base.html' %}
+
+{% block conteudo %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmação de Exclusão</title>
+</head>
+<body>
+    <h1>Confirmação de Exclusão</h1>
+    <p>Você tem certeza de que deseja excluir o artista "{{ artista.nome }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sim, Excluir</button>
+        <a href="{% url 'listar_artista' %}">Cancelar</a>
+    </form>
+</body>
+</html>
+{% endblock %}
