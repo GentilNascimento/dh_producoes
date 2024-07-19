@@ -1,0 +1,41 @@
+<!-- templates/artista/listar_artistas.html -->
+
+{% extends 'artista/base.html' %}
+
+{% block conteudo %}
+  <h1>Lista de Artistas</h1>
+
+  {% if artistas %}
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Tipo de Chave PIX</th>
+          <th>Chave PIX</th>
+          <th>Banco</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for artista in artistas %}
+          <tr>
+            <td>{{ artista.id }}</td>
+            <td>{{ artista.nome }}</td>
+            <td>{{ artista.cpf }}</td>
+            <td>{{ artista.tipo_chave_pix }}</td>
+            <td>{{ artista.chave_pix }}</td>
+            <td>{{ artista.Banco }}</td>
+            <td><a href="{% url 'editar_artista' artista.id %}">Editar</a></td> <!-- Link para editar o artista -->
+            <td><a href="{% url 'excluir_artista' artista.id %}">Excluir</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+            
+    </table>
+            <a href="{% url 'home' %}">Voltar</a>
+  {% else %}
+    <p>Nenhum artista cadastrado.</p>
+  {% endif %}
+{% endblock %}

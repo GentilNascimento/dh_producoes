@@ -1,0 +1,20 @@
+<!-- templates/artista/home.html -->
+{% extends 'artista/base.html' %}
+{% block conteudo %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão DH</title>
+</head>
+<body>
+    <h1>Casting Artístico DH PRODUÇÕES</h1>
+    <a href="{% url 'cadastrar_artista' %}"class="btn btn-primary">Cadastrar Novo Artista</a>
+    <a href="{% url 'listar_artista' %}" class="btn btn-primary">Listar Artistas</a>
+    <a href="{% url 'criar_evento' %}" class="btn btn-primary">Criar Evento</a>
+    <a href="{% url 'listar_eventos' %}" class="btn btn-primary">Listar Eventos</a>
+   
+    <!-- Adicione qualquer conteúdo desejado para a página inicial -->
+</body>
+</html>
+{% endblock %}

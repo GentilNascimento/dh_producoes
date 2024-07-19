@@ -1,0 +1,21 @@
+<!-- templates/artista/editar_artista.html -->
+{% extends 'artista/base.html' %}
+
+{% block conteudo %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Artista</title>
+</head>
+<body>
+    <h1>Editar Artista</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+        <button type="submit">Voltar</button>
+    </form>
+</body>
+</html>
+{% endblock %}

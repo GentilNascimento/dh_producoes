@@ -1,0 +1,22 @@
+{% extends 'artista/base.html' %}
+{% block conteudo %}
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Artista</title>
+</head>
+<body>
+    <h1>Cadastrar Novo Artista</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">salvar</button>  
+        <a href="{% url 'home' %}">Voltar</a>      
+    </form>
+    
+    
+
+</body>
+</html>
+{% endblock %}

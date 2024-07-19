@@ -1,0 +1,17 @@
+{% extends 'artista/base.html' %}
+{% block conteudo %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sem Artistas</title>
+</head>
+<body>
+    <h1>Nenhum artista cadastrado</h1>
+    <p>Não há artistas cadastrados no momento.</p>
+    <a href="{% url 'home' %}">Voltar</a>
+    <!-- Aqui você pode adicionar qualquer mensagem adicional que desejar -->
+</body>
+</html>
+{% endblock %}

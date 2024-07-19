@@ -1,0 +1,54 @@
+<!-- criar_evento.html -->
+{% extends 'artista/base.html' %}
+{% block conteudo %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Evento</title>
+    </script>
+    <!--Formatando data para: (dd-mm-yyyy)-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!--Formatando horas para: (hh:mm)-->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.js"></script>
+    <script src="{% static 'evento.js' %}"></script> <!-- Arquivo JavaScript externo -->
+</head>
+
+<body>
+    <h1>Criar Evento</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+        <a href="{% url 'home' %}"><button type="button">Voltar</button></a>
+    </form>
+
+    <script>
+        $(function () {
+            $("#id_data").datepicker({ dateFormat: 'dd-mm-yy' });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#id_horario').timepicker({
+                timeFormat: 'H:Hm',
+                interval: 15, // intervalo de 15 minutos,
+                scrollbar: true, // exibir barra de rolagem para selecionar horas
+                dropdown: true, // permitir menu para selecionar horas
+                onSelect: function (timeText, inst) {
+                    $('#id_horario').val(timeText); // atribui o novo valor de hora selecionado ao campo de entrada
+                }
+            });
+
+        });
+    </script>
+</body >
+</html >
+{% endblock %}

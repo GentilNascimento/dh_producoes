@@ -1,0 +1,26 @@
+<!-- listar_eventos.html -->
+{% extends 'artista/base.html' %}
+{% block conteudo %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Eventos</title>
+</head>
+<body>
+    <h1>Eventos</h1>
+    {% if eventos %}
+        <ul>
+            {% for evento in eventos %}
+                <li>{{ evento }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Não há eventos cadastrados.</p>
+    {% endif %}
+
+    <a href="{% url 'criar_evento' %}">Criar Novo Evento</a>
+    <a href="{% url 'criar_evento' %}">Voltar</a>
+</body>
+</html>
+{% endblock %}
